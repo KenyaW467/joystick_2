@@ -1,26 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
-    public float speed = 0.01f;
+    public float speed = 0.03f;
     public bool pc_mode = false;
+    //　HP表示用スライダー
 
     public FloatingJoystick variableJoystick;
 
     //gemeover画面
-    public GameObject tauch_wall;
+    public GameObject director_obj;
 
     void Start()
     {
-        tauch_wall = GameObject.Find("DirectorScript");
+        director_obj = GameObject.Find("DirectorScript");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (tauch_wall.GetComponent<DirectorScript>().pause_flg != true)
+        if (director_obj.GetComponent<DirectorScript>().pause_flg != true)
         {
             /*キャラクターの移動制御*/
             if (Input.GetKey("up"))
@@ -50,7 +52,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        tauch_wall.GetComponent<DirectorScript>().gameover_window();
+        //director_obj.GetComponent<DirectorScript>().damege_hit();
     }
 
 }

@@ -7,10 +7,12 @@ public class SordController : MonoBehaviour
     [SerializeField]
     float wepon_attack_value = 30.0f;
 
+    GameObject chara_obj;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        chara_obj = GameObject.Find("syuzinnkou_1");
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class SordController : MonoBehaviour
     {
         if (collision.tag == "monster")
         {
+            chara_obj.GetComponent<AudioSource>().Play();
             collision.GetComponent<MonsterController>().monster_hitpoint -= wepon_attack_value;
             Debug.Log("敵に"+ wepon_attack_value  + "の攻撃！");
             Destroy(gameObject);

@@ -13,12 +13,12 @@ public class MonsterController : MonoBehaviour
     public Slider monster_hpSlider;
 
     //gemeover画面
-    public GameObject tauch_wall;
+    public GameObject director_obj;
 
     // Start is called before the first frame update
     void Start()
     {
-        tauch_wall = GameObject.Find("DirectorScript");
+        director_obj = GameObject.Find("DirectorScript");
     }
 
     // Update is called once per frame
@@ -34,7 +34,8 @@ public class MonsterController : MonoBehaviour
 
         if (transform.position.y < -0.3f)
         {
-            tauch_wall.GetComponent<DirectorScript>().gameover_window();
+            Destroy(gameObject);
+            director_obj.GetComponent<DirectorScript>().damege_hit();
         }
 
     }
