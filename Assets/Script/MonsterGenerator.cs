@@ -8,15 +8,14 @@ public class MonsterGenerator : MonoBehaviour
     public GameObject zako_monsterPrefab;
     
     [SerializeField]
-    public float span = 1.0f; /*モンスター出現間隔*/
-    [SerializeField]
-    public int monster_max = 5; /*モンスターの最大出現数*/
+    public float span = 1.0f; /*モンスター出現間隔[sec]*/
     [SerializeField]
     public int boss_monster_rate = 10; /*bossモンスターの出現率*/
 
     int monster_num = 0; /*モンスターの数*/
     float delta = 0;
-
+    float base_monster_lebel = 1.0f;
+    float lebelup_rate = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +36,15 @@ public class MonsterGenerator : MonoBehaviour
                 GameObject new_monster = Instantiate(boss_monsterPrefab) as GameObject;
                 float x_vector_random = Random.Range(-2f, 2f);
                 new_monster.transform.position = new Vector3(x_vector_random, 6, 0);
+                new_monster.GetComponent<MonsterController>().monster_lebel = base_monster_lebel;
+                base_monster_lebel *= lebelup_rate;
             }
             else
             {
                 GameObject new_monster = Instantiate(zako_monsterPrefab) as GameObject;
                 float x_vector_random = Random.Range(-2f, 2f);
                 new_monster.transform.position = new Vector3(x_vector_random, 6, 0);
+                new_monster.GetComponent<MonsterController>().monster_lebel = base_monster_lebel;
             }
         }
 

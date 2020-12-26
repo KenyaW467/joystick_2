@@ -484,6 +484,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster_hitpoint: 100
-  max_hitpoint: 100
+  exp: 1
+  monster_lebel: 1
   monster_hpSlider: {fileID: 4259024531178394534}
-  tauch_wall: {fileID: 0}
+  director_obj: {fileID: 0}
+  treasure_obj: {fileID: 737681481980986346, guid: e81923f765da8ac4a89d7fdcd9ffccb2,
+    type: 3}

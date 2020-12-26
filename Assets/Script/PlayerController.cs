@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 0.03f;
     public bool pc_mode = false;
@@ -12,16 +12,25 @@ public class CharacterController : MonoBehaviour
     public FloatingJoystick variableJoystick;
 
     //gemeover画面
-    public GameObject director_obj;
+    [SerializeField]
+    GameObject director_obj;
+
+    //宝箱関係
+    [SerializeField]
+    GameObject tresuresound_obj;
+    public int treasurebox_lebel1_num;
+    public int treasurebox_lebel2_num;
 
     void Start()
     {
-        director_obj = GameObject.Find("DirectorScript");
+        //director_obj = GameObject.Find("DirectorScript");
+        //tresuresound_obj = GameObject.Find("TreasureGetSound");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (director_obj.GetComponent<DirectorScript>().pause_flg != true)
         {
             /*キャラクターの移動制御*/
@@ -49,10 +58,19 @@ public class CharacterController : MonoBehaviour
             Mathf.Clamp(transform.position.y, 0.0f, 4.6f), 0);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        //director_obj.GetComponent<DirectorScript>().damege_hit();
+        if (collision.tag == "treasurebox_lebel1")
+        {
+            tresuresound_obj.GetComponent<BoxGetSound>().treasureget();
+            treasurebox_lebel1_num++;
+        }
+        else if (collision.tag == "treasurebox_lebel2")
+        {
+            tresuresound_obj.GetComponent<BoxGetSound>().treasureget();
+            treasurebox_lebel2_num++;
+        }
     }
 
 }

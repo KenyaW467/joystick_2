@@ -15,10 +15,12 @@ public class DirectorScript : MonoBehaviour
 
     public GameObject bgmobj;
 
+    public float experience_point = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-       gameover_panel.SetActive(false);
+        gameover_panel.SetActive(false);
     }
 
     void gameover_window()
@@ -40,5 +42,9 @@ public class DirectorScript : MonoBehaviour
         {
             gameover_window();
         }
+    }
+    public void get_exp(int exp)
+    {
+        experience_point += exp;
     }
 }

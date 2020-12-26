@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - monster
+  - treasurebox_lebel2
+  - treasurebox_lebel1
   layers:
   - Default
   - TransparentFX

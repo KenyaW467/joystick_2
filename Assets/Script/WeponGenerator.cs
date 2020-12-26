@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class WeponGenerator : MonoBehaviour
 {
-    public GameObject weponPrefab;
+    public GameObject weponPrefab_auto;
+    public GameObject weponPrefab_click;
     GameObject character_object;
 
-    [SerializeField]
-    float wepon_create_time = 1.0f;
+    public float wepon_create_time = 1.0f;
+    public int wepon_power = 30;
+
     float delta = 0;
 
     GameObject director_obj;
@@ -29,21 +31,25 @@ public class WeponGenerator : MonoBehaviour
             if (this.delta > wepon_create_time)
             {
                 this.delta = 0;
-                create_weapon(/*武器の攻撃力、生成速度、移動速度なんかを同時にセットしたい*/);
+                create_weapon_auto(/*武器の攻撃力*/);
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            create_weapon(/*武器の攻撃力、生成速度、移動速度なんかを同時にセットしたい*/);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                create_weapon_click(/*武器の攻撃力*/);
+            }
         }
     }
 
-    public void create_weapon() /*武器の生成速度、移動速度を同時にセットしたい*/
+    public void create_weapon_click() /*武器の攻撃力*/
     {
-        Debug.Log("武器の生成");
+        GameObject new_wepon = Instantiate(weponPrefab_click) as GameObject;
+        new_wepon.transform.position = this.transform.position;
+    }
 
-        GameObject new_wepon = Instantiate(weponPrefab) as GameObject;
+    public void create_weapon_auto() /*武器の攻撃力*/
+    {
+        GameObject new_wepon = Instantiate(weponPrefab_auto) as GameObject;
         new_wepon.transform.position = this.transform.position;
     }
 }
