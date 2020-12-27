@@ -10,6 +10,10 @@ public class DirectorScript : MonoBehaviour
     [SerializeField]
     GameObject gameover_panel;
     [SerializeField]
+    GameObject pause_panel;
+    [SerializeField]
+    GameObject pause_se;
+    [SerializeField]
     int wall_hitpoint = 10;
     public Slider wall_hpSlider;
 
@@ -21,6 +25,7 @@ public class DirectorScript : MonoBehaviour
     void Start()
     {
         gameover_panel.SetActive(false);
+        pause_panel.SetActive(false);
     }
 
     void gameover_window()
@@ -30,6 +35,25 @@ public class DirectorScript : MonoBehaviour
         pause_flg = true;
         bgmobj.GetComponent<AudioSource>().Stop();
         gameover_panel.SetActive(true);
+    }
+
+    public void temp_pause()
+    {
+        //gemeover画面の表示
+        if(pause_flg == false )
+        {
+            Time.timeScale = 0;
+            pause_flg = true;
+            pause_se.GetComponent<AudioSource>().Play();
+            pause_panel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pause_flg = false;
+            pause_se.GetComponent<AudioSource>().Play();
+            pause_panel.SetActive(false);
+        }
     }
 
     public void damege_hit()

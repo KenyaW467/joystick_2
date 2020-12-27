@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterGenerator : MonoBehaviour
 {
@@ -9,18 +10,23 @@ public class MonsterGenerator : MonoBehaviour
     
     [SerializeField]
     public float span = 1.0f; /*モンスター出現間隔[sec]*/
+    public GameObject span_slider;
+
     [SerializeField]
     public int boss_monster_rate = 10; /*bossモンスターの出現率*/
+    [SerializeField]
+    float lebelup_rate = 1.5f; /*レベルアップ比率*/
 
     int monster_num = 0; /*モンスターの数*/
     float delta = 0;
     float base_monster_lebel = 1.0f;
-    float lebelup_rate = 1.5f;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        span_slider = GameObject.Find("GenerateSpanSlider");
     }
 
     // Update is called once per frame

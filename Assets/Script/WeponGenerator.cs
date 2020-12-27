@@ -25,7 +25,7 @@ public class WeponGenerator : MonoBehaviour
     void Update()
     {
         /*武器の生成制御*/
-        if (director_obj.GetComponent<DirectorScript>().pause_flg != true)
+        if (director_obj.GetComponent<DirectorScript>().pause_flg != true) /*puase中でないとき*/
         {
             this.delta += Time.deltaTime;
             if (this.delta > wepon_create_time)
@@ -36,6 +36,7 @@ public class WeponGenerator : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                /*spaceキー押下*/
                 create_weapon_click(/*武器の攻撃力*/);
             }
         }

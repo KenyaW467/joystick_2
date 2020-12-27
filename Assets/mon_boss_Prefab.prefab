@@ -483,9 +483,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a525f22409faed44aee32834247f0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster_hitpoint: 100
+  monster_hitpoint: 200
   exp: 1
   monster_lebel: 1
+  speed: 0.01
   monster_hpSlider: {fileID: 4259024531178394534}
   director_obj: {fileID: 0}
   treasure_obj: {fileID: 737681481980986346, guid: e81923f765da8ac4a89d7fdcd9ffccb2,

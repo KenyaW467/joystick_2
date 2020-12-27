@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class MonsterController : MonoBehaviour
 {
-    float speed = -0.03f;
     float max_hitpoint;
 
     public float monster_hitpoint = 100.0f;
     public float exp = 1.0f;
     public float monster_lebel = 1.0f;
+    public float speed = 0.02f;
 
     //　HP表示用スライダー
     public Slider monster_hpSlider;
@@ -38,7 +38,8 @@ public class MonsterController : MonoBehaviour
     {
         monster_hpSlider.value = monster_hitpoint / max_hitpoint;
 
-        transform.Translate(0,speed, 0);
+        float random_speed = Random.Range(-0.01f, 0.01f);
+        transform.Translate(0,-speed + random_speed, 0);
         if (monster_hitpoint < 0)
         {
             director_obj.GetComponent<DirectorScript>().experience_point += (int)exp;

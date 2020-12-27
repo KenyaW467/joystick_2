@@ -486,6 +486,7 @@ MonoBehaviour:
   monster_hitpoint: 100
   exp: 1
   monster_lebel: 1
+  speed: 0.02
   monster_hpSlider: {fileID: 3578496421538152013}
   director_obj: {fileID: 0}
   treasure_obj: {fileID: 4075750798524758391, guid: dff60712be43269458cadfd183777b07,
