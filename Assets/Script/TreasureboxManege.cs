@@ -4,23 +4,6 @@ using UnityEngine;
 
 public class TreasureboxManege : MonoBehaviour
 {
-    //GameObject director_obj;
-    //public GameObject tresuremanege_obj;
-
-    //public int treasurebox_lebel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //director_obj = GameObject.Find("DirectorScript");
-    }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        
-    }
-    */
 
     public void treasurebox_create(Vector3 generate_position,GameObject treasurebox)
     {

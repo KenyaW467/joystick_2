@@ -40,4 +40,14 @@ public class ZangekiController : MonoBehaviour
             collision.GetComponent<MonsterController>().monster_hitpoint -= wepon_attack_value;
         }
     }
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "monster")
+        {
+            chara_obj.GetComponent<AudioSource>().Play();
+            collision.gameObject.GetComponent<MonsterController>().monster_hitpoint -= wepon_attack_value;
+        }
+    }
+    */
 }

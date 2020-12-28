@@ -11,6 +11,7 @@ public class MonsterGenerator : MonoBehaviour
     [SerializeField]
     public float span = 1.0f; /*モンスター出現間隔[sec]*/
     public GameObject span_slider;
+    float span_max;
 
     [SerializeField]
     public int boss_monster_rate = 10; /*bossモンスターの出現率*/
@@ -22,11 +23,11 @@ public class MonsterGenerator : MonoBehaviour
     float base_monster_lebel = 1.0f;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         span_slider = GameObject.Find("GenerateSpanSlider");
+        //span_max = span_slider.
     }
 
     // Update is called once per frame

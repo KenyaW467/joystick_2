@@ -65,11 +65,13 @@ public class PlayerController : MonoBehaviour
         {
             tresuresound_obj.GetComponent<BoxGetSound>().treasureget();
             treasurebox_lebel1_num++;
+            //Destroy(collision.gameObject);
         }
         else if (collision.tag == "treasurebox_lebel2")
         {
             tresuresound_obj.GetComponent<BoxGetSound>().treasureget();
             treasurebox_lebel2_num++;
+            //Destroy(collision.gameObject);
         }
     }
 
